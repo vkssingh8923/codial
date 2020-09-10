@@ -26,5 +26,18 @@ module.exports.create = function (req, res){
 
 }
 module.exports.create_session = function (req, res){
-    return res.render('signup.ejs',{title:"signup"});
+    userSchemaModel.findOne({email:req.body.email},(err,user)=>{
+        if(err){console.log("error occured");return}
+        // console.log(user);
+        // return res.redirect('back')
+        if(user){
+            if(user.password==req.body.password){
+                res.cookie('user_id',user.id)
+                return res.redirect('/users/profile')
+            }
+            else{
+                return res.redirect('back')
+            }
+        }else{return res.redirect('back')}
+    })
 }
