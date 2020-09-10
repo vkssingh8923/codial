@@ -5,11 +5,14 @@ const path =require('path')
 const expressejs = require('express-ejs-layouts')
 
 app.set('view engine','ejs')
+app.set('layout extractStyles',true)
+app.set('layout extractScripts',true)
 app.set('views',path.join(__dirname,'views'))
 
 app.use(expressejs)
-app.use(express.static('public'))
 app.use('/',require('./routes'))
+app.use(express.static('./assets'))
+
 
 
 
