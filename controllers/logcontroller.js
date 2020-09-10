@@ -3,6 +3,9 @@ const { findOne } = require('../models/users');
 const userSchemaModel = require('../models/users');
 
 module.exports.login = function (req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
     return res.render('login.ejs',{title:"login"});
 }
 module.exports.signup = function (req, res){
@@ -26,5 +29,7 @@ module.exports.create = function (req, res){
 
 }
 module.exports.create_session = function (req, res){
-    return res.render('signup.ejs',{title:"signup"});
+    // return res.render('signup.ejs',{title:"signup"});
+
+    return res.redirect('/');
 }
