@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const path =require('path')
 const expressejs = require('express-ejs-layouts')
+const mongooseConnection =require('./config/mongoose')
 
 app.set('view engine','ejs')
 app.set('layout extractStyles',true)
