@@ -9,6 +9,8 @@ const session =require('express-session')
 const passport = require('passport')
 const passportlocal = require('./config/passport-local-strategy');
 const { Passport } = require('passport');
+var MongoDBStore = require('connect-mongo')(session);
+
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -30,7 +32,11 @@ app.use(session({
   resave:false,
   cookie:{
     maxAge:(20*20000)
-  }
+  },
+  store:new MongoDBStore({
+    mongooseConnection:mongooseConnection,
+    autoremove:'disable'
+  },function(err){console.log(err || "ok")})
 }));
 
 app.use(passport.initialize());

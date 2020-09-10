@@ -1,3 +1,9 @@
 <header>
-    <h1>Header</h1>
+
+    <% if(locals.user) { %>
+        <p><%= user.name %></p>
+        <a href="/log/log_out"><button>LogOut</button></a>
+    <% }else{ %>
+        <p>SIGNIN</p>
+    <%}%>
 </header>
