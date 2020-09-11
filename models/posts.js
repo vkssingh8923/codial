@@ -10,7 +10,11 @@ var mongoose = require('mongoose');
     user: { 
         type:mongoose.Schema.Types.ObjectId,
         ref:'userSchemaModel'
-     }
+    },
+    comments:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'commentSchemaModel'
+    }]
     },{
         timestamps:true
   });

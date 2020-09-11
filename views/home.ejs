@@ -14,6 +14,12 @@
     <ul>
         <% for(post of posts_l){%>
             <li><%= post %></li>
+            <form action="/comments/create_comments" id="new-post-form" method="POST">
+                <textarea name="comment_content" id="" cols="20" rows="1"></textarea>
+                <input type="hidden" name="post" value="<%=post._id %>">
+                <input type="submit" value="POST">
+            </form>
         <%}%>
+        
     </ul>
 </section>
