@@ -1,8 +1,5 @@
 <link rel="stylesheet" href="./css/style1.css">
 
-<h1>
-    heelloo
-</h1>
 
 <section id="feed-posts">
     <h4>Posts</h4>
@@ -10,4 +7,13 @@
         <textarea name="contents" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="POST">
     </form>
+
+</section>
+
+<section>
+    <ul>
+        <% for(post of posts_l){%>
+            <li><%= post %></li>
+        <%}%>
+    </ul>
 </section>
